@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const photosDir = path.join(__dirname, 'photos'); // folder with images/videos
+const photosDir = path.join(__dirname, 'photos'); // folder with images
 const outputFile = path.join(__dirname, 'index.html');
 
 // Read all files in the photos folder
 const files = fs.readdirSync(photosDir).filter(file => {
-    return /\.(jpg|jpeg|png|gif|mp4|webm)$/i.test(file);
+    return /\.(jpg|jpeg|png|gif)$/i.test(file);
 });
 
 // Generate JavaScript array dynamically
@@ -19,7 +19,7 @@ const htmlTemplate = `
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Independence Day Celebration</title>
+<title> SSO Independence Day Celebration</title>
 <style>
 body { text-align: center; font-family: Arial; background-color: #f7f7f7; }
 h1 { color: #ff5722; margin-top: 20px; }
@@ -29,7 +29,6 @@ h1 { color: #ff5722; margin-top: 20px; }
                color: white; font-weight: bold; font-size: 18px; border-radius: 3px;
                user-select: none; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); }
 .prev { left: 0; } .next { right: 0; }
-video.slides { background: black; }
 </style>
 </head>
 <body>
@@ -46,18 +45,10 @@ ${imageArrayJS}
 
 const slideshow = document.getElementById('slideshow');
 imageFiles.forEach(src => {
-  let el;
-  if (/\\.(mp4|webm)$/i.test(src)) {
-    el = document.createElement('video');
-    el.src = src;
-    el.controls = true;
-    el.className = 'slides';
-  } else {
-    el = document.createElement('img');
-    el.src = src;
-    el.className = 'slides';
-  }
-  slideshow.appendChild(el);
+  const img = document.createElement('img');
+  img.src = src;
+  img.className = 'slides';
+  slideshow.appendChild(img);
 });
 
 let slideIndex = 0;
@@ -73,13 +64,8 @@ function showSlides(n) {
   slides[slideIndex].style.display = "block";
 }
 
-// Auto-slide every 5 seconds (5000 ms) for images only
-setInterval(function() { 
-  let slides = document.getElementsByClassName("slides");
-  if (!(slides[slideIndex] instanceof HTMLVideoElement)) {
-    plusSlides(1);
-  }
-}, 5000);
+// Auto-slide every 3 seconds
+setInterval(function() { plusSlides(1); }, 10000);
 </script>
 
 </body>
@@ -88,4 +74,4 @@ setInterval(function() {
 
 // Write index.html
 fs.writeFileSync(outputFile, htmlTemplate, 'utf-8');
-console.log(`index.html generated with ${files.length} files (images/videos).`);
+console.log(`index.html generated with ${files.length} photos.`);

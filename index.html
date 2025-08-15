@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> SSO Independence Day Celebration</title>
+<title>Independence Day Celebration</title>
 <style>
 body { text-align: center; font-family: Arial; background-color: #f7f7f7; }
 h1 { color: #ff5722; margin-top: 20px; }
@@ -14,11 +14,12 @@ h1 { color: #ff5722; margin-top: 20px; }
                color: white; font-weight: bold; font-size: 18px; border-radius: 3px;
                user-select: none; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); }
 .prev { left: 0; } .next { right: 0; }
+video.slides { background: black; }
 </style>
 </head>
 <body>
 
-<h1>Our Society Independence Day Celebrations</h1>
+<h1>SSO Independence Day Celebrations -2025</h1>
 
 <div class="slideshow-container" id="slideshow">
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -92,15 +93,24 @@ const imageFiles = [
   "photos/WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg",
   "photos/WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg",
   "photos/WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg"
+  "photos/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg",
+  "photos/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4"
 ];
 
 const slideshow = document.getElementById('slideshow');
 imageFiles.forEach(src => {
-  const img = document.createElement('img');
-  img.src = src;
-  img.className = 'slides';
-  slideshow.appendChild(img);
+  let el;
+  if (/\.(mp4|webm)$/i.test(src)) {
+    el = document.createElement('video');
+    el.src = src;
+    el.controls = true;
+    el.className = 'slides';
+  } else {
+    el = document.createElement('img');
+    el.src = src;
+    el.className = 'slides';
+  }
+  slideshow.appendChild(el);
 });
 
 let slideIndex = 0;
@@ -116,8 +126,13 @@ function showSlides(n) {
   slides[slideIndex].style.display = "block";
 }
 
-// Auto-slide every 3 seconds
-setInterval(function() { plusSlides(1); }, 10000);
+// Auto-slide every 5 seconds (5000 ms) for images only
+setInterval(function() { 
+  let slides = document.getElementsByClassName("slides");
+  if (!(slides[slideIndex] instanceof HTMLVideoElement)) {
+    plusSlides(1);
+  }
+}, 5000);
 </script>
 
 </body>
