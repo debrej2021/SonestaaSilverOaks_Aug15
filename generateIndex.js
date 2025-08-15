@@ -65,7 +65,7 @@ function showSlides(n) {
 }
 
 // Auto-slide every 3 seconds
-setInterval(function() { plusSlides(1); }, 3000);
+setInterval(function() { plusSlides(1); }, 10000);
 </script>
 
 </body>
