@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independence Day Celebration</title>
+<style>
+body { text-align: center; font-family: Arial; background-color: #f7f7f7; }
+h1 { color: #ff5722; margin-top: 20px; }
+.slideshow-container { max-width: 800px; margin: 40px auto; position: relative; }
+.slides { display: none; width: 100%; border-radius: 10px; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 12px;
+               color: white; font-weight: bold; font-size: 18px; border-radius: 3px;
+               user-select: none; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); }
+.prev { left: 0; } .next { right: 0; }
+</style>
+</head>
+<body>
+
+<h1>Our Society Independence Day Celebrations</h1>
+
+<div class="slideshow-container" id="slideshow">
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+const imageFiles = [
+  "photos/DSC00104.JPG",
+  "photos/DSC00105.JPG",
+  "photos/DSC00106.JPG",
+  "photos/DSC00107.JPG",
+  "photos/DSC00108.JPG",
+  "photos/DSC00109.JPG",
+  "photos/DSC00110.JPG",
+  "photos/DSC00111.JPG",
+  "photos/DSC00112.JPG",
+  "photos/DSC00113.JPG",
+  "photos/DSC00114.JPG",
+  "photos/DSC00115.JPG",
+  "photos/DSC00116.JPG",
+  "photos/DSC00117.JPG",
+  "photos/DSC00118.JPG",
+  "photos/DSC00119.JPG",
+  "photos/DSC00120.JPG",
+  "photos/DSC00121.JPG",
+  "photos/DSC00122.JPG",
+  "photos/DSC00123.JPG",
+  "photos/DSC00124.JPG",
+  "photos/DSC00125.JPG",
+  "photos/DSC00126.JPG",
+  "photos/DSC00127.JPG",
+  "photos/DSC00128.JPG",
+  "photos/DSC00129.JPG",
+  "photos/DSC00130.JPG",
+  "photos/DSC00131.JPG",
+  "photos/DSC00132.JPG",
+  "photos/DSC00133.JPG",
+  "photos/DSC00134.JPG",
+  "photos/DSC00135.JPG",
+  "photos/DSC00136.JPG",
+  "photos/DSC00137.JPG",
+  "photos/DSC00138.JPG",
+  "photos/DSC00139.JPG",
+  "photos/DSC00140.JPG",
+  "photos/DSC00141.JPG",
+  "photos/DSC00142.JPG",
+  "photos/DSC00143.JPG",
+  "photos/DSC00144.JPG",
+  "photos/DSC00145.JPG",
+  "photos/DSC00146.JPG",
+  "photos/DSC00147.JPG",
+  "photos/DSC00148.JPG",
+  "photos/DSC00149.JPG",
+  "photos/DSC00150.JPG",
+  "photos/DSC00151.JPG",
+  "photos/DSC00152.JPG",
+  "photos/DSC00153.JPG",
+  "photos/DSC00154.JPG",
+  "photos/DSC00155.JPG",
+  "photos/DSC00156.JPG",
+  "photos/DSC00157.JPG",
+  "photos/DSC00158.JPG",
+  "photos/DSC00159.JPG"
+];
+
+const slideshow = document.getElementById('slideshow');
+imageFiles.forEach(src => {
+  const img = document.createElement('img');
+  img.src = src;
+  img.className = 'slides';
+  slideshow.appendChild(img);
+});
+
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) { showSlides(slideIndex += n); }
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slides");
+  if (n >= slides.length) { slideIndex = 0; }
+  if (n < 0) { slideIndex = slides.length - 1; }
+  for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+  slides[slideIndex].style.display = "block";
+}
+
+// Auto-slide every 3 seconds
+setInterval(function() { plusSlides(1); }, 3000);
+</script>
+
+</body>
+</html>
