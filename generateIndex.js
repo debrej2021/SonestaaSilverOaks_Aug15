@@ -19,7 +19,7 @@ const htmlTemplate = `
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Independence Day Celebration</title>
+<title> SSO Independence Day Celebration</title>
 <style>
 body { text-align: center; font-family: Arial; background-color: #f7f7f7; }
 h1 { color: #ff5722; margin-top: 20px; }
