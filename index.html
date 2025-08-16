@@ -1,340 +1,766 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Independence Day Celebration</title>
+<meta charset="utf-8" />
+<title>Society Function — Gallery</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
 <style>
-body { text-align: center; font-family: Arial; background-color: #f7f7f7; margin: 0; padding: 0; }
-h1 { color: #ff5722; margin-top: 20px; font-size: 1.8rem; }
-h2 { margin-top: 40px; color: #333; }
-nav { margin: 20px; font-size: 1.2rem; }
-nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
-.slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
-.slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
-video.slides, iframe.slides { background: black; }
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 3px;
-  user-select: none;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  z-index: 10;
-}
-.prev { left: 5px; }
-.next { right: 5px; }
+:root { --maxw: 1200px; --pad: 12px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin:0; background:#0b0b0b; color:#e6edf3; }
+header, footer { max-width:var(--maxw); margin:0 auto; padding:16px var(--pad); }
+header h1 { margin:0 0 4px; font-size:1.35rem; }
+header p { margin:0; opacity:.8; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:12px var(--pad) 28px; }
+.nav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.nav a { text-decoration:none; padding:8px 12px; border-radius:10px; background:#2d333b; color:#e6edf3; font-weight:600; }
+.section { display:grid; grid-template-columns: 2fr 1fr; gap:12px; margin:18px 0 28px; }
+@media (max-width: 900px) { .section { grid-template-columns: 1fr; } }
+.card { background:#111; border-radius:12px; padding:12px; }
+.player { position:relative; width:100%; background:#000; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,.4); }
+.player video, .player img { display:block; width:100%; height:auto; object-fit:contain; aspect-ratio:16/9; background:#000; }
+.controls { display:flex; gap:8px; margin:10px 0 0; flex-wrap:wrap; }
+button { appearance:none; border:0; padding:10px 14px; border-radius:10px; cursor:pointer; background:#1f6feb; color:#fff; font-weight:600; }
+button.secondary { background:#2d333b; color:#e6edf3; }
+.list { list-style:none; margin:0; padding:0; max-height:420px; overflow:auto; }
+.list li { padding:8px 10px; border-radius:8px; cursor:pointer; }
+.list li.active { background:#1f6feb22; }
+.list li:hover { background:#2d333b; }
+.small { font-size:.9rem; opacity:.75; }
+.caption { margin-top:8px; opacity:.85; }
 </style>
 </head>
 <body>
+<header>
+  <h1>Society Function — Gallery</h1>
+  <p>Auto-generated on 16/8/2025, 9:07:21 pm • Cache version: 2025-08-16</p>
+</header>
 
-<h1>SSO Independence Day Celebrations-25</h1>
-<nav>
-  <a href="#flag_hoisting">Flag Hoisting</a> |
-  <a href="#champions">Champions</a> |
-  <a href="#performances">Performances</a>
-</nav>
+<div class="wrap">
+  <nav class="nav">
+    <a href="#champions">Champions</a><a href="#flag">Flag</a><a href="#performances">Performances</a>
+  </nav>
 
-  <h2 id="flag_hoisting">flag hoisting</h2>
-  <div class="slideshow-container" id="flag_hoisting-slideshow">
-    <a class="prev" onclick="plusflag_hoisting(-1)">&#10094;</a>
-    <a class="next" onclick="plusflag_hoisting(1)">&#10095;</a>
-  </div>
-  <script>
-  const flag_hoistingFiles = [
-  "photos/flag/DSC00106.JPG",
-  "photos/flag/DSC00107.JPG",
-  "photos/flag/DSC00108.JPG",
-  "photos/flag/DSC00109.JPG",
-  "photos/flag/DSC00110.JPG",
-  "photos/flag/DSC00111.JPG",
-  "photos/flag/DSC00112.JPG",
-  "photos/flag/DSC00113.JPG",
-  "photos/flag/DSC00114.JPG",
-  "photos/flag/DSC00115.JPG",
-  "photos/flag/DSC00116.JPG",
-  "photos/flag/DSC00117.JPG",
-  "photos/flag/DSC00118.JPG",
-  "photos/flag/DSC00119.JPG",
-  "photos/flag/DSC00120.JPG",
-  "photos/flag/DSC00121.JPG",
-  "photos/flag/DSC00122.JPG",
-  "photos/flag/DSC00123.JPG",
-  "photos/flag/DSC00124.JPG",
-  "photos/flag/DSC00125.JPG",
-  "photos/flag/DSC00126.JPG",
-  "photos/flag/DSC00127.JPG",
-  "photos/flag/DSC00128.JPG",
-  "photos/flag/DSC00129.JPG",
-  "photos/flag/DSC00130.JPG",
-  "photos/flag/DSC00131.JPG",
-  "photos/flag/DSC00132.JPG",
-  "photos/flag/DSC00133.JPG",
-  "photos/flag/DSC00134.JPG",
-  "photos/flag/DSC00135.JPG",
-  "photos/flag/DSC00136.JPG",
-  "photos/flag/DSC00137.JPG",
-  "photos/flag/DSC00138.JPG",
-  "photos/flag/DSC00139.JPG",
-  "photos/flag/DSC00140.JPG",
-  "photos/flag/DSC00141.JPG",
-  "photos/flag/DSC00142.JPG",
-  "photos/flag/DSC00143.JPG",
-  "photos/flag/DSC00144.JPG",
-  "photos/flag/DSC00145.JPG",
-  "photos/flag/DSC00146.JPG",
-  "photos/flag/DSC00147.JPG",
-  "photos/flag/DSC00148.JPG",
-  "photos/flag/DSC00149.JPG",
-  "photos/flag/DSC00150.JPG",
-  "photos/flag/DSC00151.JPG",
-  "photos/flag/DSC00152.JPG",
-  "photos/flag/DSC00153.JPG",
-  "photos/flag/DSC00154.JPG",
-  "photos/flag/DSC00155.JPG",
-  "photos/flag/DSC00156.JPG",
-  "photos/flag/DSC00157.JPG",
-  "photos/flag/DSC00158.JPG",
-  "photos/flag/DSC00159.JPG",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.14.31 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.09 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM (1).jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.11 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.13 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.14 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM (1).jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg",
-  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg",
-  "photos/flag/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4"
+  
+  <section id="champions" class="section">
+    <div class="card">
+      <h2 style="margin:4px 0 8px">Champions</h2>
+      <div class="player" id="player-0"></div>
+      <div class="controls">
+        <button class="secondary" data-prev="0">◀︎ Prev</button>
+        <button class="secondary" data-next="0">Next ▶︎</button>
+        <button data-reload="0">Reload Media</button>
+      </div>
+      <div class="caption" id="caption-0"></div>
+      <div class="small" id="meta-0"></div>
+    </div>
+    <aside class="card">
+      <h3 style="margin:4px 0 8px">Champions — Items</h3>
+      <ul class="list" id="list-0"></ul>
+    </aside>
+  </section>
+  
+  <section id="flag" class="section">
+    <div class="card">
+      <h2 style="margin:4px 0 8px">Flag</h2>
+      <div class="player" id="player-1"></div>
+      <div class="controls">
+        <button class="secondary" data-prev="1">◀︎ Prev</button>
+        <button class="secondary" data-next="1">Next ▶︎</button>
+        <button data-reload="1">Reload Media</button>
+      </div>
+      <div class="caption" id="caption-1"></div>
+      <div class="small" id="meta-1"></div>
+    </div>
+    <aside class="card">
+      <h3 style="margin:4px 0 8px">Flag — Items</h3>
+      <ul class="list" id="list-1"></ul>
+    </aside>
+  </section>
+  
+  <section id="performances" class="section">
+    <div class="card">
+      <h2 style="margin:4px 0 8px">Performances</h2>
+      <div class="player" id="player-2"></div>
+      <div class="controls">
+        <button class="secondary" data-prev="2">◀︎ Prev</button>
+        <button class="secondary" data-next="2">Next ▶︎</button>
+        <button data-reload="2">Reload Media</button>
+      </div>
+      <div class="caption" id="caption-2"></div>
+      <div class="small" id="meta-2"></div>
+    </div>
+    <aside class="card">
+      <h3 style="margin:4px 0 8px">Performances — Items</h3>
+      <ul class="list" id="list-2"></ul>
+    </aside>
+  </section>
+  
+</div>
+
+<footer>
+  <small>© Your Society • Static site generated by generateIndex.js</small>
+</footer>
+
+<script>
+const VERSION = "2025-08-16";
+const sections = [
+  {
+    "id": "champions",
+    "title": "Champions",
+    "items": [
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00220 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00220 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00222 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00222 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00222.JPG?v=2025-08-16",
+        "label": "DSC00222.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00223 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00223 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00224 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00224 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00227 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00227 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00229 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00229 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00230 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00230 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00231 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00231 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00231.JPG?v=2025-08-16",
+        "label": "DSC00231.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00232 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00232 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00233 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00233 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00235 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00235 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00298 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00298 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00299 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00299 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00300 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00300 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00301 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00301 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00305 - Copy.JPG?v=2025-08-16",
+        "label": "DSC00305 - Copy.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00314.JPG?v=2025-08-16",
+        "label": "DSC00314.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00315.JPG?v=2025-08-16",
+        "label": "DSC00315.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00318.JPG?v=2025-08-16",
+        "label": "DSC00318.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00320.JPG?v=2025-08-16",
+        "label": "DSC00320.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00322.JPG?v=2025-08-16",
+        "label": "DSC00322.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00324.JPG?v=2025-08-16",
+        "label": "DSC00324.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00325.JPG?v=2025-08-16",
+        "label": "DSC00325.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/champions/DSC00327.JPG?v=2025-08-16",
+        "label": "DSC00327.JPG"
+      }
+    ]
+  },
+  {
+    "id": "flag",
+    "title": "Flag",
+    "items": [
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00106.JPG?v=2025-08-16",
+        "label": "DSC00106.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00107.JPG?v=2025-08-16",
+        "label": "DSC00107.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00108.JPG?v=2025-08-16",
+        "label": "DSC00108.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00109.JPG?v=2025-08-16",
+        "label": "DSC00109.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00110.JPG?v=2025-08-16",
+        "label": "DSC00110.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00111.JPG?v=2025-08-16",
+        "label": "DSC00111.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00112.JPG?v=2025-08-16",
+        "label": "DSC00112.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00113.JPG?v=2025-08-16",
+        "label": "DSC00113.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00114.JPG?v=2025-08-16",
+        "label": "DSC00114.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00115.JPG?v=2025-08-16",
+        "label": "DSC00115.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00116.JPG?v=2025-08-16",
+        "label": "DSC00116.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00117.JPG?v=2025-08-16",
+        "label": "DSC00117.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00118.JPG?v=2025-08-16",
+        "label": "DSC00118.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00119.JPG?v=2025-08-16",
+        "label": "DSC00119.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00120.JPG?v=2025-08-16",
+        "label": "DSC00120.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00121.JPG?v=2025-08-16",
+        "label": "DSC00121.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00122.JPG?v=2025-08-16",
+        "label": "DSC00122.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00123.JPG?v=2025-08-16",
+        "label": "DSC00123.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00124.JPG?v=2025-08-16",
+        "label": "DSC00124.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00125.JPG?v=2025-08-16",
+        "label": "DSC00125.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00126.JPG?v=2025-08-16",
+        "label": "DSC00126.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00127.JPG?v=2025-08-16",
+        "label": "DSC00127.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00128.JPG?v=2025-08-16",
+        "label": "DSC00128.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00129.JPG?v=2025-08-16",
+        "label": "DSC00129.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00130.JPG?v=2025-08-16",
+        "label": "DSC00130.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00131.JPG?v=2025-08-16",
+        "label": "DSC00131.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00132.JPG?v=2025-08-16",
+        "label": "DSC00132.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00133.JPG?v=2025-08-16",
+        "label": "DSC00133.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00134.JPG?v=2025-08-16",
+        "label": "DSC00134.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00135.JPG?v=2025-08-16",
+        "label": "DSC00135.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00136.JPG?v=2025-08-16",
+        "label": "DSC00136.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00137.JPG?v=2025-08-16",
+        "label": "DSC00137.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00138.JPG?v=2025-08-16",
+        "label": "DSC00138.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00139.JPG?v=2025-08-16",
+        "label": "DSC00139.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00140.JPG?v=2025-08-16",
+        "label": "DSC00140.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00141.JPG?v=2025-08-16",
+        "label": "DSC00141.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00142.JPG?v=2025-08-16",
+        "label": "DSC00142.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00143.JPG?v=2025-08-16",
+        "label": "DSC00143.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00144.JPG?v=2025-08-16",
+        "label": "DSC00144.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00145.JPG?v=2025-08-16",
+        "label": "DSC00145.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00146.JPG?v=2025-08-16",
+        "label": "DSC00146.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00147.JPG?v=2025-08-16",
+        "label": "DSC00147.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00148.JPG?v=2025-08-16",
+        "label": "DSC00148.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00149.JPG?v=2025-08-16",
+        "label": "DSC00149.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00150.JPG?v=2025-08-16",
+        "label": "DSC00150.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00151.JPG?v=2025-08-16",
+        "label": "DSC00151.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00152.JPG?v=2025-08-16",
+        "label": "DSC00152.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00153.JPG?v=2025-08-16",
+        "label": "DSC00153.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00154.JPG?v=2025-08-16",
+        "label": "DSC00154.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00155.JPG?v=2025-08-16",
+        "label": "DSC00155.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00156.JPG?v=2025-08-16",
+        "label": "DSC00156.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00157.JPG?v=2025-08-16",
+        "label": "DSC00157.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00158.JPG?v=2025-08-16",
+        "label": "DSC00158.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/DSC00159.JPG?v=2025-08-16",
+        "label": "DSC00159.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.14.31 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.14.31 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.09 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.09 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM (1).jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.10 PM (1).jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.10 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.11 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.11 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.13 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.13 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.14 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.14 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM (1).jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.15 PM (1).jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg"
+      },
+      {
+        "type": "image",
+        "src": "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg?v=2025-08-16",
+        "label": "WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg"
+      },
+      {
+        "type": "video",
+        "src": "photos/flag/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4?v=2025-08-16",
+        "poster": null,
+        "label": "WhatsApp Video 2025-08-15 at 12.15.12 PM"
+      }
+    ]
+  },
+  {
+    "id": "performances",
+    "title": "Performances",
+    "items": [
+      {
+        "type": "video",
+        "src": "photos/performances/C0081_fixed.mp4?v=2025-08-16",
+        "poster": null,
+        "label": "C0081_fixed"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00177.JPG?v=2025-08-16",
+        "label": "DSC00177.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00179.JPG?v=2025-08-16",
+        "label": "DSC00179.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00184.JPG?v=2025-08-16",
+        "label": "DSC00184.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00188.JPG?v=2025-08-16",
+        "label": "DSC00188.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00191.JPG?v=2025-08-16",
+        "label": "DSC00191.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00196.JPG?v=2025-08-16",
+        "label": "DSC00196.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00201.JPG?v=2025-08-16",
+        "label": "DSC00201.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00213.JPG?v=2025-08-16",
+        "label": "DSC00213.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00238.JPG?v=2025-08-16",
+        "label": "DSC00238.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00246.JPG?v=2025-08-16",
+        "label": "DSC00246.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00248.JPG?v=2025-08-16",
+        "label": "DSC00248.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00256.JPG?v=2025-08-16",
+        "label": "DSC00256.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00264.JPG?v=2025-08-16",
+        "label": "DSC00264.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00331.JPG?v=2025-08-16",
+        "label": "DSC00331.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00332.JPG?v=2025-08-16",
+        "label": "DSC00332.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00334.JPG?v=2025-08-16",
+        "label": "DSC00334.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00345.JPG?v=2025-08-16",
+        "label": "DSC00345.JPG"
+      },
+      {
+        "type": "image",
+        "src": "photos/performances/DSC00346.JPG?v=2025-08-16",
+        "label": "DSC00346.JPG"
+      }
+    ]
+  }
 ];
-  const flag_hoistingSlideshow = document.getElementById('flag_hoisting-slideshow');
+const state = sections.map(() => 0);
 
-  flag_hoistingFiles.forEach(src => {
-    let el;
-    if (/\.(mp4|webm)$/i.test(src)) {
-      el = document.createElement('video');
-      el.src = src;
-      el.className = 'slides flag_hoisting';
-      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
-    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("watch?v=", "embed/");
-      el.className = 'slides flag_hoisting';
-      el.width = "100%"; el.height = "400";
-      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      el.allowFullscreen = true;
-    } else if (src.includes("vimeo.com")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
-      el.className = 'slides flag_hoisting';
-      el.width = "100%"; el.height = "400";
-      el.allow = "autoplay; fullscreen; picture-in-picture";
-      el.allowFullscreen = true;
-    } else {
-      el = document.createElement('img');
-      el.src = src;
-      el.className = 'slides flag_hoisting';
-    }
-    flag_hoistingSlideshow.appendChild(el);
+function $(sel) { return document.querySelector(sel); }
+function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+function renderList(si) {
+  const ul = $("#list-" + si);
+  clear(ul);
+  const items = sections[si].items;
+  items.forEach((item, i) => {
+    const li = document.createElement("li");
+    li.className = i === state[si] ? "active" : "";
+    li.innerHTML = '<span class="small">#' + (i+1) + '</span> ' + (item.label || item.src);
+    li.addEventListener("click", () => { state[si] = i; renderMedia(si); renderList(si); });
+    ul.appendChild(li);
   });
+}
 
-  let flag_hoistingIndex = 0;
-  showflag_hoisting(flag_hoistingIndex);
+function renderMedia(si) {
+  const container = $("#player-" + si);
+  clear(container);
+  const item = sections[si].items[state[si]];
+  if (!item) { container.textContent = "No media."; return; }
 
-  function plusflag_hoisting(n) { showflag_hoisting(flag_hoistingIndex += n); }
+  if (item.type === "video") {
+    const vid = document.createElement("video");
+    vid.setAttribute("controls", "");
+    vid.setAttribute("playsinline", "");
+    vid.setAttribute("preload", "metadata");
+    vid.style.width = "100%";
+    vid.style.borderRadius = "12px";
+    vid.style.background = "#000";
+    vid.style.objectFit = "contain";
+    if (item.poster) vid.poster = item.poster;
 
-  function showflag_hoisting(n) {
-    let slides = document.getElementsByClassName("slides flag_hoisting");
-    if (n >= slides.length) { flag_hoistingIndex = 0; }
-    if (n < 0) { flag_hoistingIndex = slides.length - 1; }
-    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-    slides[flag_hoistingIndex].style.display = "block";
+    const src = document.createElement("source");
+    const fresh = item.src + (item.src.includes("?") ? "&" : "?") + "t=" + Date.now();
+    src.src = fresh;
+    src.type = "video/mp4";
+    vid.appendChild(src);
+
+    container.appendChild(vid);
+  } else {
+    const img = document.createElement("img");
+    img.src = item.src;
+    img.alt = item.label || "";
+    container.appendChild(img);
   }
 
-  setInterval(function() {
-    let slides = document.getElementsByClassName("slides flag_hoisting");
-    if (!(slides[flag_hoistingIndex] instanceof HTMLVideoElement) &&
-        !(slides[flag_hoistingIndex] instanceof HTMLIFrameElement)) {
-      plusflag_hoisting(1);
-    }
-  }, 5000);
-  </script>
-  
-  <h2 id="champions">champions</h2>
-  <div class="slideshow-container" id="champions-slideshow">
-    <a class="prev" onclick="pluschampions(-1)">&#10094;</a>
-    <a class="next" onclick="pluschampions(1)">&#10095;</a>
-  </div>
-  <script>
-  const championsFiles = [
-  "photos/champions/DSC00220 - Copy.JPG",
-  "photos/champions/DSC00222 - Copy.JPG",
-  "photos/champions/DSC00222.JPG",
-  "photos/champions/DSC00223 - Copy.JPG",
-  "photos/champions/DSC00224 - Copy.JPG",
-  "photos/champions/DSC00227 - Copy.JPG",
-  "photos/champions/DSC00229 - Copy.JPG",
-  "photos/champions/DSC00230 - Copy.JPG",
-  "photos/champions/DSC00231 - Copy.JPG",
-  "photos/champions/DSC00231.JPG",
-  "photos/champions/DSC00232 - Copy.JPG",
-  "photos/champions/DSC00233 - Copy.JPG",
-  "photos/champions/DSC00235 - Copy.JPG",
-  "photos/champions/DSC00298 - Copy.JPG",
-  "photos/champions/DSC00299 - Copy.JPG",
-  "photos/champions/DSC00300 - Copy.JPG",
-  "photos/champions/DSC00301 - Copy.JPG",
-  "photos/champions/DSC00305 - Copy.JPG",
-  "photos/champions/DSC00314.JPG",
-  "photos/champions/DSC00315.JPG",
-  "photos/champions/DSC00318.JPG",
-  "photos/champions/DSC00320.JPG",
-  "photos/champions/DSC00322.JPG",
-  "photos/champions/DSC00324.JPG",
-  "photos/champions/DSC00325.JPG",
-  "photos/champions/DSC00327.JPG"
-];
-  const championsSlideshow = document.getElementById('champions-slideshow');
+  $("#caption-" + si).textContent = item.label || (item.type === "video" ? "Video" : "Image");
+  $("#meta-" + si).textContent = (item.type === "video" ? "Video" : "Image") + " • " + item.src.split("?")[0];
+}
 
-  championsFiles.forEach(src => {
-    let el;
-    if (/\.(mp4|webm)$/i.test(src)) {
-      el = document.createElement('video');
-      el.src = src;
-      el.className = 'slides champions';
-      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
-    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("watch?v=", "embed/");
-      el.className = 'slides champions';
-      el.width = "100%"; el.height = "400";
-      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      el.allowFullscreen = true;
-    } else if (src.includes("vimeo.com")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
-      el.className = 'slides champions';
-      el.width = "100%"; el.height = "400";
-      el.allow = "autoplay; fullscreen; picture-in-picture";
-      el.allowFullscreen = true;
-    } else {
-      el = document.createElement('img');
-      el.src = src;
-      el.className = 'slides champions';
-    }
-    championsSlideshow.appendChild(el);
-  });
-
-  let championsIndex = 0;
-  showchampions(championsIndex);
-
-  function pluschampions(n) { showchampions(championsIndex += n); }
-
-  function showchampions(n) {
-    let slides = document.getElementsByClassName("slides champions");
-    if (n >= slides.length) { championsIndex = 0; }
-    if (n < 0) { championsIndex = slides.length - 1; }
-    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-    slides[championsIndex].style.display = "block";
+document.addEventListener("click", (e) => {
+  if (e.target.matches("[data-prev]")) {
+    const si = +e.target.getAttribute("data-prev");
+    const n = sections[si].items.length;
+    state[si] = (state[si] - 1 + n) % n;
+    renderMedia(si); renderList(si);
   }
-
-  setInterval(function() {
-    let slides = document.getElementsByClassName("slides champions");
-    if (!(slides[championsIndex] instanceof HTMLVideoElement) &&
-        !(slides[championsIndex] instanceof HTMLIFrameElement)) {
-      pluschampions(1);
-    }
-  }, 5000);
-  </script>
-  
-  <h2 id="performances">performances</h2>
-  <div class="slideshow-container" id="performances-slideshow">
-    <a class="prev" onclick="plusperformances(-1)">&#10094;</a>
-    <a class="next" onclick="plusperformances(1)">&#10095;</a>
-  </div>
-  <script>
-  const performancesFiles = [
-  "photos/performances/C0081_fixed.mp4",
-  "photos/performances/DSC00177.JPG",
-  "photos/performances/DSC00179.JPG",
-  "photos/performances/DSC00184.JPG",
-  "photos/performances/DSC00188.JPG",
-  "photos/performances/DSC00191.JPG",
-  "photos/performances/DSC00196.JPG",
-  "photos/performances/DSC00201.JPG",
-  "photos/performances/DSC00213.JPG",
-  "photos/performances/DSC00238.JPG",
-  "photos/performances/DSC00246.JPG",
-  "photos/performances/DSC00248.JPG",
-  "photos/performances/DSC00256.JPG",
-  "photos/performances/DSC00264.JPG",
-  "photos/performances/DSC00331.JPG",
-  "photos/performances/DSC00332.JPG",
-  "photos/performances/DSC00334.JPG",
-  "photos/performances/DSC00345.JPG",
-  "photos/performances/DSC00346.JPG"
-];
-  const performancesSlideshow = document.getElementById('performances-slideshow');
-
-  performancesFiles.forEach(src => {
-    let el;
-    if (/\.(mp4|webm)$/i.test(src)) {
-      el = document.createElement('video');
-      el.src = src;
-      el.className = 'slides performances';
-      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
-    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("watch?v=", "embed/");
-      el.className = 'slides performances';
-      el.width = "100%"; el.height = "400";
-      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      el.allowFullscreen = true;
-    } else if (src.includes("vimeo.com")) {
-      el = document.createElement('iframe');
-      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
-      el.className = 'slides performances';
-      el.width = "100%"; el.height = "400";
-      el.allow = "autoplay; fullscreen; picture-in-picture";
-      el.allowFullscreen = true;
-    } else {
-      el = document.createElement('img');
-      el.src = src;
-      el.className = 'slides performances';
-    }
-    performancesSlideshow.appendChild(el);
-  });
-
-  let performancesIndex = 0;
-  showperformances(performancesIndex);
-
-  function plusperformances(n) { showperformances(performancesIndex += n); }
-
-  function showperformances(n) {
-    let slides = document.getElementsByClassName("slides performances");
-    if (n >= slides.length) { performancesIndex = 0; }
-    if (n < 0) { performancesIndex = slides.length - 1; }
-    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-    slides[performancesIndex].style.display = "block";
+  if (e.target.matches("[data-next]")) {
+    const si = +e.target.getAttribute("data-next");
+    const n = sections[si].items.length;
+    state[si] = (state[si] + 1) % n;
+    renderMedia(si); renderList(si);
   }
+  if (e.target.matches("[data-reload]")) {
+    const si = +e.target.getAttribute("data-reload");
+    renderMedia(si);
+  }
+});
 
-  setInterval(function() {
-    let slides = document.getElementsByClassName("slides performances");
-    if (!(slides[performancesIndex] instanceof HTMLVideoElement) &&
-        !(slides[performancesIndex] instanceof HTMLIFrameElement)) {
-      plusperformances(1);
-    }
-  }, 5000);
-  </script>
-  
+(function boot(){
+  sections.forEach((_, si) => { renderList(si); renderMedia(si); });
+})();
+</script>
 </body>
 </html>
