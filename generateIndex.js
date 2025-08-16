@@ -13,9 +13,10 @@ const sections = [
 
 // Function to read media files
 function getMediaFiles(folderPath) {
-  return fs.readdirSync(folderPath).filter(file =>
-    /\.(jpg|jpeg|png|gif|mp4|webm)$/i.test(file)
-  );
+  return fs.existsSync(folderPath) ? 
+    fs.readdirSync(folderPath).filter(file =>
+      /\.(jpg|jpeg|png|gif|mp4|webm)$/i.test(file)
+    ) : [];
 }
 
 // Generate HTML for each section
@@ -24,7 +25,10 @@ function generateSectionHTML(sectionId, files, folder) {
 
   return `
   <h2 id="${sectionId}">${sectionId.replace(/_/g, " ")}</h2>
-  <div class="slideshow-container" id="${sectionId}-slideshow"></div>
+  <div class="slideshow-container" id="${sectionId}-slideshow">
+    <a class="prev" onclick="plus${sectionId}(-1)">&#10094;</a>
+    <a class="next" onclick="plus${sectionId}(1)">&#10095;</a>
+  </div>
   <script>
   ${fileArrayJS}
   const ${sectionId}Slideshow = document.getElementById('${sectionId}-slideshow');
@@ -49,6 +53,8 @@ function generateSectionHTML(sectionId, files, folder) {
   let ${sectionId}Index = 0;
   show${sectionId}(${sectionId}Index);
 
+  function plus${sectionId}(n) { show${sectionId}(${sectionId}Index += n); }
+
   function show${sectionId}(n) {
     let slides = document.getElementsByClassName("slides ${sectionId}");
     if (n >= slides.length) { ${sectionId}Index = 0; }
@@ -57,12 +63,13 @@ function generateSectionHTML(sectionId, files, folder) {
     slides[${sectionId}Index].style.display = "block";
   }
 
+  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides ${sectionId}");
     if (!(slides[${sectionId}Index] instanceof HTMLVideoElement)) {
-      show${sectionId}(++${sectionId}Index);
+      plus${sectionId}(1);
     }
-  }, 10000);
+  }, 5000);
   </script>
   `;
 }
@@ -101,6 +108,26 @@ nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
 .slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
 .slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
 video.slides { background: black; }
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 3px;
+  user-select: none;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.prev { left: 5px; }
+.next { right: 5px; }
+@media screen and (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  .prev, .next { font-size: 18px; padding: 12px; }
+}
 </style>
 </head>
 <body>
@@ -110,4 +137,4 @@ ${bodyContent}
 `;
 
 fs.writeFileSync(outputFile, htmlTemplate, 'utf-8');
-console.log("index.html generated with multiple sections.");
+console.log("index.html generated with multiple sections and navigation buttons.");

@@ -14,6 +14,26 @@ nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
 .slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
 .slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
 video.slides { background: black; }
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 3px;
+  user-select: none;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.prev { left: 5px; }
+.next { right: 5px; }
+@media screen and (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  .prev, .next { font-size: 18px; padding: 12px; }
+}
 </style>
 </head>
 <body>
@@ -26,7 +46,10 @@ video.slides { background: black; }
 </nav>
 
   <h2 id="flag_hoisting">flag hoisting</h2>
-  <div class="slideshow-container" id="flag_hoisting-slideshow"></div>
+  <div class="slideshow-container" id="flag_hoisting-slideshow">
+    <a class="prev" onclick="plusflag_hoisting(-1)">&#10094;</a>
+    <a class="next" onclick="plusflag_hoisting(1)">&#10095;</a>
+  </div>
   <script>
   const flag_hoistingFiles = [
   "photos/flag/DSC00106.JPG",
@@ -119,6 +142,8 @@ video.slides { background: black; }
   let flag_hoistingIndex = 0;
   showflag_hoisting(flag_hoistingIndex);
 
+  function plusflag_hoisting(n) { showflag_hoisting(flag_hoistingIndex += n); }
+
   function showflag_hoisting(n) {
     let slides = document.getElementsByClassName("slides flag_hoisting");
     if (n >= slides.length) { flag_hoistingIndex = 0; }
@@ -127,16 +152,20 @@ video.slides { background: black; }
     slides[flag_hoistingIndex].style.display = "block";
   }
 
+  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides flag_hoisting");
     if (!(slides[flag_hoistingIndex] instanceof HTMLVideoElement)) {
-      showflag_hoisting(++flag_hoistingIndex);
+      plusflag_hoisting(1);
     }
-  }, 10000);
+  }, 5000);
   </script>
   
   <h2 id="champions">champions</h2>
-  <div class="slideshow-container" id="champions-slideshow"></div>
+  <div class="slideshow-container" id="champions-slideshow">
+    <a class="prev" onclick="pluschampions(-1)">&#10094;</a>
+    <a class="next" onclick="pluschampions(1)">&#10095;</a>
+  </div>
   <script>
   const championsFiles = [
   "photos/champions/DSC00220 - Copy.JPG",
@@ -188,6 +217,8 @@ video.slides { background: black; }
   let championsIndex = 0;
   showchampions(championsIndex);
 
+  function pluschampions(n) { showchampions(championsIndex += n); }
+
   function showchampions(n) {
     let slides = document.getElementsByClassName("slides champions");
     if (n >= slides.length) { championsIndex = 0; }
@@ -196,16 +227,20 @@ video.slides { background: black; }
     slides[championsIndex].style.display = "block";
   }
 
+  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides champions");
     if (!(slides[championsIndex] instanceof HTMLVideoElement)) {
-      showchampions(++championsIndex);
+      pluschampions(1);
     }
-  }, 10000);
+  }, 5000);
   </script>
   
   <h2 id="performances">performances</h2>
-  <div class="slideshow-container" id="performances-slideshow"></div>
+  <div class="slideshow-container" id="performances-slideshow">
+    <a class="prev" onclick="plusperformances(-1)">&#10094;</a>
+    <a class="next" onclick="plusperformances(1)">&#10095;</a>
+  </div>
   <script>
   const performancesFiles = [
   "photos/performances/DSC00177.JPG",
@@ -245,6 +280,8 @@ video.slides { background: black; }
   let performancesIndex = 0;
   showperformances(performancesIndex);
 
+  function plusperformances(n) { showperformances(performancesIndex += n); }
+
   function showperformances(n) {
     let slides = document.getElementsByClassName("slides performances");
     if (n >= slides.length) { performancesIndex = 0; }
@@ -253,12 +290,13 @@ video.slides { background: black; }
     slides[performancesIndex].style.display = "block";
   }
 
+  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides performances");
     if (!(slides[performancesIndex] instanceof HTMLVideoElement)) {
-      showperformances(++performancesIndex);
+      plusperformances(1);
     }
-  }, 10000);
+  }, 5000);
   </script>
   
 </body>
