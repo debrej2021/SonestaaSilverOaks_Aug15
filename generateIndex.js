@@ -62,7 +62,7 @@ function generateSectionHTML(sectionId, files, folder) {
     if (!(slides[${sectionId}Index] instanceof HTMLVideoElement)) {
       show${sectionId}(++${sectionId}Index);
     }
-  }, 5000);
+  }, 10000);
   </script>
   `;
 }
