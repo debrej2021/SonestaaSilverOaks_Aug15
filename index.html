@@ -13,7 +13,7 @@ nav { margin: 20px; font-size: 1.2rem; }
 nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
 .slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
 .slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
-video.slides { background: black; }
+video.slides, iframe.slides { background: black; }
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -30,10 +30,6 @@ video.slides { background: black; }
 }
 .prev { left: 5px; }
 .next { right: 5px; }
-@media screen and (max-width: 600px) {
-  h1 { font-size: 1.4rem; }
-  .prev, .next { font-size: 18px; padding: 12px; }
-}
 </style>
 </head>
 <body>
@@ -121,16 +117,28 @@ video.slides { background: black; }
   "photos/flag/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4"
 ];
   const flag_hoistingSlideshow = document.getElementById('flag_hoisting-slideshow');
+
   flag_hoistingFiles.forEach(src => {
     let el;
     if (/\.(mp4|webm)$/i.test(src)) {
       el = document.createElement('video');
       el.src = src;
       el.className = 'slides flag_hoisting';
-      el.autoplay = true;
-      el.loop = true;
-      el.muted = true;
-      el.playsInline = true;
+      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
+    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("watch?v=", "embed/");
+      el.className = 'slides flag_hoisting';
+      el.width = "100%"; el.height = "400";
+      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      el.allowFullscreen = true;
+    } else if (src.includes("vimeo.com")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
+      el.className = 'slides flag_hoisting';
+      el.width = "100%"; el.height = "400";
+      el.allow = "autoplay; fullscreen; picture-in-picture";
+      el.allowFullscreen = true;
     } else {
       el = document.createElement('img');
       el.src = src;
@@ -152,10 +160,10 @@ video.slides { background: black; }
     slides[flag_hoistingIndex].style.display = "block";
   }
 
-  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides flag_hoisting");
-    if (!(slides[flag_hoistingIndex] instanceof HTMLVideoElement)) {
+    if (!(slides[flag_hoistingIndex] instanceof HTMLVideoElement) &&
+        !(slides[flag_hoistingIndex] instanceof HTMLIFrameElement)) {
       plusflag_hoisting(1);
     }
   }, 5000);
@@ -196,16 +204,28 @@ video.slides { background: black; }
   "photos/champions/DSC00327.JPG"
 ];
   const championsSlideshow = document.getElementById('champions-slideshow');
+
   championsFiles.forEach(src => {
     let el;
     if (/\.(mp4|webm)$/i.test(src)) {
       el = document.createElement('video');
       el.src = src;
       el.className = 'slides champions';
-      el.autoplay = true;
-      el.loop = true;
-      el.muted = true;
-      el.playsInline = true;
+      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
+    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("watch?v=", "embed/");
+      el.className = 'slides champions';
+      el.width = "100%"; el.height = "400";
+      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      el.allowFullscreen = true;
+    } else if (src.includes("vimeo.com")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
+      el.className = 'slides champions';
+      el.width = "100%"; el.height = "400";
+      el.allow = "autoplay; fullscreen; picture-in-picture";
+      el.allowFullscreen = true;
     } else {
       el = document.createElement('img');
       el.src = src;
@@ -227,10 +247,10 @@ video.slides { background: black; }
     slides[championsIndex].style.display = "block";
   }
 
-  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides champions");
-    if (!(slides[championsIndex] instanceof HTMLVideoElement)) {
+    if (!(slides[championsIndex] instanceof HTMLVideoElement) &&
+        !(slides[championsIndex] instanceof HTMLIFrameElement)) {
       pluschampions(1);
     }
   }, 5000);
@@ -243,32 +263,50 @@ video.slides { background: black; }
   </div>
   <script>
   const performancesFiles = [
+  "photos/performances/C0007.MP4",
+  "photos/performances/C0081.MP4",
   "photos/performances/DSC00177.JPG",
   "photos/performances/DSC00179.JPG",
   "photos/performances/DSC00184.JPG",
   "photos/performances/DSC00188.JPG",
   "photos/performances/DSC00191.JPG",
   "photos/performances/DSC00196.JPG",
+  "photos/performances/DSC00201.JPG",
   "photos/performances/DSC00213.JPG",
+  "photos/performances/DSC00238.JPG",
   "photos/performances/DSC00246.JPG",
   "photos/performances/DSC00248.JPG",
+  "photos/performances/DSC00256.JPG",
   "photos/performances/DSC00264.JPG",
   "photos/performances/DSC00331.JPG",
   "photos/performances/DSC00332.JPG",
   "photos/performances/DSC00334.JPG",
-  "photos/performances/DSC00345.JPG"
+  "photos/performances/DSC00345.JPG",
+  "photos/performances/DSC00346.JPG"
 ];
   const performancesSlideshow = document.getElementById('performances-slideshow');
+
   performancesFiles.forEach(src => {
     let el;
     if (/\.(mp4|webm)$/i.test(src)) {
       el = document.createElement('video');
       el.src = src;
       el.className = 'slides performances';
-      el.autoplay = true;
-      el.loop = true;
-      el.muted = true;
-      el.playsInline = true;
+      el.autoplay = true; el.loop = true; el.muted = true; el.playsInline = true;
+    } else if (src.includes("youtube.com") || src.includes("youtu.be")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("watch?v=", "embed/");
+      el.className = 'slides performances';
+      el.width = "100%"; el.height = "400";
+      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      el.allowFullscreen = true;
+    } else if (src.includes("vimeo.com")) {
+      el = document.createElement('iframe');
+      el.src = src.replace("vimeo.com", "player.vimeo.com/video");
+      el.className = 'slides performances';
+      el.width = "100%"; el.height = "400";
+      el.allow = "autoplay; fullscreen; picture-in-picture";
+      el.allowFullscreen = true;
     } else {
       el = document.createElement('img');
       el.src = src;
@@ -290,10 +328,10 @@ video.slides { background: black; }
     slides[performancesIndex].style.display = "block";
   }
 
-  // Auto-slide every 5 seconds (skip if video)
   setInterval(function() {
     let slides = document.getElementsByClassName("slides performances");
-    if (!(slides[performancesIndex] instanceof HTMLVideoElement)) {
+    if (!(slides[performancesIndex] instanceof HTMLVideoElement) &&
+        !(slides[performancesIndex] instanceof HTMLIFrameElement)) {
       plusperformances(1);
     }
   }, 5000);
