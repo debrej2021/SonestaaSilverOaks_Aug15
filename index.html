@@ -8,164 +8,256 @@
 <style>
 body { text-align: center; font-family: Arial; background-color: #f7f7f7; margin: 0; padding: 0; }
 h1 { color: #ff5722; margin-top: 20px; font-size: 1.8rem; }
-.slideshow-container {
-  max-width: 100%;
-  margin: 20px auto;
-  position: relative;
-  padding: 0 10px;
-}
-.slides {
-  display: none;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
-}
-video.slides {
-  background: black;
-}
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 3px;
-  user-select: none;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  z-index: 10;
-}
-.prev { left: 5px; }
-.next { right: 5px; }
-@media screen and (max-width: 600px) {
-  h1 { font-size: 1.4rem; }
-  .prev, .next { font-size: 18px; padding: 12px; }
-}
+h2 { margin-top: 40px; color: #333; }
+nav { margin: 20px; font-size: 1.2rem; }
+nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
+.slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
+.slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
+video.slides { background: black; }
 </style>
 </head>
 <body>
 
-<h1>Our Society Independence Day Celebrations</h1>
+<h1>SSO Independence Day Celebrations-25</h1>
+<nav>
+  <a href="#flag_hoisting">Flag Hoisting</a> |
+  <a href="#champions">Champions</a> |
+  <a href="#performances">Performances</a>
+</nav>
 
-<div class="slideshow-container" id="slideshow">
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-<script>
-const imageFiles = [
-  "photos/DSC00106.JPG",
-  "photos/DSC00107.JPG",
-  "photos/DSC00108.JPG",
-  "photos/DSC00109.JPG",
-  "photos/DSC00110.JPG",
-  "photos/DSC00111.JPG",
-  "photos/DSC00112.JPG",
-  "photos/DSC00113.JPG",
-  "photos/DSC00114.JPG",
-  "photos/DSC00115.JPG",
-  "photos/DSC00116.JPG",
-  "photos/DSC00117.JPG",
-  "photos/DSC00118.JPG",
-  "photos/DSC00119.JPG",
-  "photos/DSC00120.JPG",
-  "photos/DSC00121.JPG",
-  "photos/DSC00122.JPG",
-  "photos/DSC00123.JPG",
-  "photos/DSC00124.JPG",
-  "photos/DSC00125.JPG",
-  "photos/DSC00126.JPG",
-  "photos/DSC00127.JPG",
-  "photos/DSC00128.JPG",
-  "photos/DSC00129.JPG",
-  "photos/DSC00130.JPG",
-  "photos/DSC00131.JPG",
-  "photos/DSC00132.JPG",
-  "photos/DSC00133.JPG",
-  "photos/DSC00134.JPG",
-  "photos/DSC00135.JPG",
-  "photos/DSC00136.JPG",
-  "photos/DSC00137.JPG",
-  "photos/DSC00138.JPG",
-  "photos/DSC00139.JPG",
-  "photos/DSC00140.JPG",
-  "photos/DSC00141.JPG",
-  "photos/DSC00142.JPG",
-  "photos/DSC00143.JPG",
-  "photos/DSC00144.JPG",
-  "photos/DSC00145.JPG",
-  "photos/DSC00146.JPG",
-  "photos/DSC00147.JPG",
-  "photos/DSC00148.JPG",
-  "photos/DSC00149.JPG",
-  "photos/DSC00150.JPG",
-  "photos/DSC00151.JPG",
-  "photos/DSC00152.JPG",
-  "photos/DSC00153.JPG",
-  "photos/DSC00154.JPG",
-  "photos/DSC00155.JPG",
-  "photos/DSC00156.JPG",
-  "photos/DSC00157.JPG",
-  "photos/DSC00158.JPG",
-  "photos/DSC00159.JPG",
-  "photos/WhatsApp Image 2025-08-15 at 12.14.31 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.09 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.10 PM (1).jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.10 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.11 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.13 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.14 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.15 PM (1).jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg",
-  "photos/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg",
-  "photos/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4"
+  <h2 id="flag_hoisting">flag hoisting</h2>
+  <div class="slideshow-container" id="flag_hoisting-slideshow"></div>
+  <script>
+  const flag_hoistingFiles = [
+  "photos/flag/DSC00106.JPG",
+  "photos/flag/DSC00107.JPG",
+  "photos/flag/DSC00108.JPG",
+  "photos/flag/DSC00109.JPG",
+  "photos/flag/DSC00110.JPG",
+  "photos/flag/DSC00111.JPG",
+  "photos/flag/DSC00112.JPG",
+  "photos/flag/DSC00113.JPG",
+  "photos/flag/DSC00114.JPG",
+  "photos/flag/DSC00115.JPG",
+  "photos/flag/DSC00116.JPG",
+  "photos/flag/DSC00117.JPG",
+  "photos/flag/DSC00118.JPG",
+  "photos/flag/DSC00119.JPG",
+  "photos/flag/DSC00120.JPG",
+  "photos/flag/DSC00121.JPG",
+  "photos/flag/DSC00122.JPG",
+  "photos/flag/DSC00123.JPG",
+  "photos/flag/DSC00124.JPG",
+  "photos/flag/DSC00125.JPG",
+  "photos/flag/DSC00126.JPG",
+  "photos/flag/DSC00127.JPG",
+  "photos/flag/DSC00128.JPG",
+  "photos/flag/DSC00129.JPG",
+  "photos/flag/DSC00130.JPG",
+  "photos/flag/DSC00131.JPG",
+  "photos/flag/DSC00132.JPG",
+  "photos/flag/DSC00133.JPG",
+  "photos/flag/DSC00134.JPG",
+  "photos/flag/DSC00135.JPG",
+  "photos/flag/DSC00136.JPG",
+  "photos/flag/DSC00137.JPG",
+  "photos/flag/DSC00138.JPG",
+  "photos/flag/DSC00139.JPG",
+  "photos/flag/DSC00140.JPG",
+  "photos/flag/DSC00141.JPG",
+  "photos/flag/DSC00142.JPG",
+  "photos/flag/DSC00143.JPG",
+  "photos/flag/DSC00144.JPG",
+  "photos/flag/DSC00145.JPG",
+  "photos/flag/DSC00146.JPG",
+  "photos/flag/DSC00147.JPG",
+  "photos/flag/DSC00148.JPG",
+  "photos/flag/DSC00149.JPG",
+  "photos/flag/DSC00150.JPG",
+  "photos/flag/DSC00151.JPG",
+  "photos/flag/DSC00152.JPG",
+  "photos/flag/DSC00153.JPG",
+  "photos/flag/DSC00154.JPG",
+  "photos/flag/DSC00155.JPG",
+  "photos/flag/DSC00156.JPG",
+  "photos/flag/DSC00157.JPG",
+  "photos/flag/DSC00158.JPG",
+  "photos/flag/DSC00159.JPG",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.14.31 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.09 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM (1).jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.10 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.11 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.13 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.14 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM (1).jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.15 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.16 PM.jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM (1).jpeg",
+  "photos/flag/WhatsApp Image 2025-08-15 at 12.15.17 PM.jpeg",
+  "photos/flag/WhatsApp Video 2025-08-15 at 12.15.12 PM.mp4"
 ];
+  const flag_hoistingSlideshow = document.getElementById('flag_hoisting-slideshow');
+  flag_hoistingFiles.forEach(src => {
+    let el;
+    if (/\.(mp4|webm)$/i.test(src)) {
+      el = document.createElement('video');
+      el.src = src;
+      el.className = 'slides flag_hoisting';
+      el.autoplay = true;
+      el.loop = true;
+      el.muted = true;
+      el.playsInline = true;
+    } else {
+      el = document.createElement('img');
+      el.src = src;
+      el.className = 'slides flag_hoisting';
+    }
+    flag_hoistingSlideshow.appendChild(el);
+  });
 
-const slideshow = document.getElementById('slideshow');
-imageFiles.forEach(src => {
-  let el;
-  if (/\.(mp4|webm)$/i.test(src)) {
-    el = document.createElement('video');
-    el.src = src;
-    el.className = 'slides';
-    el.autoplay = true;
-    el.loop = true;
-    el.muted = true;       // required for autoplay on mobile
-    el.playsInline = true; // required for iOS Safari
-  } else {
-    el = document.createElement('img');
-    el.src = src;
-    el.className = 'slides';
+  let flag_hoistingIndex = 0;
+  showflag_hoisting(flag_hoistingIndex);
+
+  function showflag_hoisting(n) {
+    let slides = document.getElementsByClassName("slides flag_hoisting");
+    if (n >= slides.length) { flag_hoistingIndex = 0; }
+    if (n < 0) { flag_hoistingIndex = slides.length - 1; }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slides[flag_hoistingIndex].style.display = "block";
   }
-  slideshow.appendChild(el);
-});
 
-let slideIndex = 0;
-showSlides(slideIndex);
+  setInterval(function() {
+    let slides = document.getElementsByClassName("slides flag_hoisting");
+    if (!(slides[flag_hoistingIndex] instanceof HTMLVideoElement)) {
+      showflag_hoisting(++flag_hoistingIndex);
+    }
+  }, 5000);
+  </script>
+  
+  <h2 id="champions">champions</h2>
+  <div class="slideshow-container" id="champions-slideshow"></div>
+  <script>
+  const championsFiles = [
+  "photos/champions/DSC00220 - Copy.JPG",
+  "photos/champions/DSC00222 - Copy.JPG",
+  "photos/champions/DSC00223 - Copy.JPG",
+  "photos/champions/DSC00224 - Copy.JPG",
+  "photos/champions/DSC00227 - Copy.JPG",
+  "photos/champions/DSC00229 - Copy.JPG",
+  "photos/champions/DSC00230 - Copy.JPG",
+  "photos/champions/DSC00231 - Copy.JPG",
+  "photos/champions/DSC00232 - Copy.JPG",
+  "photos/champions/DSC00233 - Copy.JPG",
+  "photos/champions/DSC00235 - Copy.JPG",
+  "photos/champions/DSC00298 - Copy.JPG",
+  "photos/champions/DSC00299 - Copy.JPG",
+  "photos/champions/DSC00300 - Copy.JPG",
+  "photos/champions/DSC00301 - Copy.JPG",
+  "photos/champions/DSC00305 - Copy.JPG",
+  "photos/champions/DSC00314.JPG",
+  "photos/champions/DSC00315.JPG",
+  "photos/champions/DSC00318.JPG",
+  "photos/champions/DSC00320.JPG",
+  "photos/champions/DSC00322.JPG",
+  "photos/champions/DSC00324.JPG",
+  "photos/champions/DSC00325.JPG",
+  "photos/champions/DSC00327.JPG"
+];
+  const championsSlideshow = document.getElementById('champions-slideshow');
+  championsFiles.forEach(src => {
+    let el;
+    if (/\.(mp4|webm)$/i.test(src)) {
+      el = document.createElement('video');
+      el.src = src;
+      el.className = 'slides champions';
+      el.autoplay = true;
+      el.loop = true;
+      el.muted = true;
+      el.playsInline = true;
+    } else {
+      el = document.createElement('img');
+      el.src = src;
+      el.className = 'slides champions';
+    }
+    championsSlideshow.appendChild(el);
+  });
 
-function plusSlides(n) { showSlides(slideIndex += n); }
+  let championsIndex = 0;
+  showchampions(championsIndex);
 
-function showSlides(n) {
-  let slides = document.getElementsByClassName("slides");
-  if (n >= slides.length) { slideIndex = 0; }
-  if (n < 0) { slideIndex = slides.length - 1; }
-  for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-  slides[slideIndex].style.display = "block";
-}
-
-// Auto-slide every 5 seconds for images only
-setInterval(function() { 
-  let slides = document.getElementsByClassName("slides");
-  if (!(slides[slideIndex] instanceof HTMLVideoElement)) {
-    plusSlides(1);
+  function showchampions(n) {
+    let slides = document.getElementsByClassName("slides champions");
+    if (n >= slides.length) { championsIndex = 0; }
+    if (n < 0) { championsIndex = slides.length - 1; }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slides[championsIndex].style.display = "block";
   }
-}, 5000);
-</script>
 
+  setInterval(function() {
+    let slides = document.getElementsByClassName("slides champions");
+    if (!(slides[championsIndex] instanceof HTMLVideoElement)) {
+      showchampions(++championsIndex);
+    }
+  }, 5000);
+  </script>
+  
+  <h2 id="performances">performances</h2>
+  <div class="slideshow-container" id="performances-slideshow"></div>
+  <script>
+  const performancesFiles = [
+  "photos/performances/DSC00177.JPG",
+  "photos/performances/DSC00179.JPG",
+  "photos/performances/DSC00184.JPG",
+  "photos/performances/DSC00188.JPG",
+  "photos/performances/DSC00191.JPG",
+  "photos/performances/DSC00196.JPG",
+  "photos/performances/DSC00213.JPG",
+  "photos/performances/DSC00246.JPG",
+  "photos/performances/DSC00248.JPG",
+  "photos/performances/DSC00264.JPG",
+  "photos/performances/DSC00331.JPG",
+  "photos/performances/DSC00332.JPG",
+  "photos/performances/DSC00334.JPG",
+  "photos/performances/DSC00345.JPG"
+];
+  const performancesSlideshow = document.getElementById('performances-slideshow');
+  performancesFiles.forEach(src => {
+    let el;
+    if (/\.(mp4|webm)$/i.test(src)) {
+      el = document.createElement('video');
+      el.src = src;
+      el.className = 'slides performances';
+      el.autoplay = true;
+      el.loop = true;
+      el.muted = true;
+      el.playsInline = true;
+    } else {
+      el = document.createElement('img');
+      el.src = src;
+      el.className = 'slides performances';
+    }
+    performancesSlideshow.appendChild(el);
+  });
+
+  let performancesIndex = 0;
+  showperformances(performancesIndex);
+
+  function showperformances(n) {
+    let slides = document.getElementsByClassName("slides performances");
+    if (n >= slides.length) { performancesIndex = 0; }
+    if (n < 0) { performancesIndex = slides.length - 1; }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slides[performancesIndex].style.display = "block";
+  }
+
+  setInterval(function() {
+    let slides = document.getElementsByClassName("slides performances");
+    if (!(slides[performancesIndex] instanceof HTMLVideoElement)) {
+      showperformances(++performancesIndex);
+    }
+  }, 5000);
+  </script>
+  
 </body>
 </html>

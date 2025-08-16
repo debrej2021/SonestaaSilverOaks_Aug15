@@ -1,18 +1,90 @@
 const fs = require('fs');
 const path = require('path');
 
-const photosDir = path.join(__dirname, 'photos'); // folder with images/videos
+const baseDir = path.join(__dirname, 'photos'); // base folder
 const outputFile = path.join(__dirname, 'index.html');
 
-// Read all files in the photos folder
-const files = fs.readdirSync(photosDir).filter(file => {
-    return /\.(jpg|jpeg|png|gif|mp4|webm)$/i.test(file);
+// Sections and their subfolders
+const sections = [
+  { title: "Flag Hoisting", folder: "flag" },
+  { title: "Champions", folder: "champions" },
+  { title: "Performances", folder: "performances" }
+];
+
+// Function to read media files
+function getMediaFiles(folderPath) {
+  return fs.readdirSync(folderPath).filter(file =>
+    /\.(jpg|jpeg|png|gif|mp4|webm)$/i.test(file)
+  );
+}
+
+// Generate HTML for each section
+function generateSectionHTML(sectionId, files, folder) {
+  const fileArrayJS = `const ${sectionId}Files = [\n${files.map(f => `  "photos/${folder}/${f}"`).join(',\n')}\n];`;
+
+  return `
+  <h2 id="${sectionId}">${sectionId.replace(/_/g, " ")}</h2>
+  <div class="slideshow-container" id="${sectionId}-slideshow"></div>
+  <script>
+  ${fileArrayJS}
+  const ${sectionId}Slideshow = document.getElementById('${sectionId}-slideshow');
+  ${sectionId}Files.forEach(src => {
+    let el;
+    if (/\\.(mp4|webm)$/i.test(src)) {
+      el = document.createElement('video');
+      el.src = src;
+      el.className = 'slides ${sectionId}';
+      el.autoplay = true;
+      el.loop = true;
+      el.muted = true;
+      el.playsInline = true;
+    } else {
+      el = document.createElement('img');
+      el.src = src;
+      el.className = 'slides ${sectionId}';
+    }
+    ${sectionId}Slideshow.appendChild(el);
+  });
+
+  let ${sectionId}Index = 0;
+  show${sectionId}(${sectionId}Index);
+
+  function show${sectionId}(n) {
+    let slides = document.getElementsByClassName("slides ${sectionId}");
+    if (n >= slides.length) { ${sectionId}Index = 0; }
+    if (n < 0) { ${sectionId}Index = slides.length - 1; }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    slides[${sectionId}Index].style.display = "block";
+  }
+
+  setInterval(function() {
+    let slides = document.getElementsByClassName("slides ${sectionId}");
+    if (!(slides[${sectionId}Index] instanceof HTMLVideoElement)) {
+      show${sectionId}(++${sectionId}Index);
+    }
+  }, 5000);
+  </script>
+  `;
+}
+
+// Build index.html
+let bodyContent = `
+<h1>SSO Independence Day Celebrations-25</h1>
+<nav>
+  <a href="#flag_hoisting">Flag Hoisting</a> |
+  <a href="#champions">Champions</a> |
+  <a href="#performances">Performances</a>
+</nav>
+`;
+
+sections.forEach(section => {
+  const folderPath = path.join(baseDir, section.folder);
+  const files = getMediaFiles(folderPath);
+  const sectionId = section.title.toLowerCase().replace(/ /g, "_");
+  bodyContent += generateSectionHTML(sectionId, files, section.folder);
 });
 
-// Generate JavaScript array dynamically
-const imageArrayJS = `const imageFiles = [\n${files.map(f => `  "photos/${f}"`).join(',\n')}\n];`;
-
-// HTML template
+// Final HTML
 const htmlTemplate = `
 <!DOCTYPE html>
 <html lang="en">
@@ -23,101 +95,19 @@ const htmlTemplate = `
 <style>
 body { text-align: center; font-family: Arial; background-color: #f7f7f7; margin: 0; padding: 0; }
 h1 { color: #ff5722; margin-top: 20px; font-size: 1.8rem; }
-.slideshow-container {
-  max-width: 100%;
-  margin: 20px auto;
-  position: relative;
-  padding: 0 10px;
-}
-.slides {
-  display: none;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
-}
-video.slides {
-  background: black;
-}
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 3px;
-  user-select: none;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  z-index: 10;
-}
-.prev { left: 5px; }
-.next { right: 5px; }
-@media screen and (max-width: 600px) {
-  h1 { font-size: 1.4rem; }
-  .prev, .next { font-size: 18px; padding: 12px; }
-}
+h2 { margin-top: 40px; color: #333; }
+nav { margin: 20px; font-size: 1.2rem; }
+nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
+.slideshow-container { max-width: 100%; margin: 20px auto; position: relative; padding: 0 10px; }
+.slides { display: none; width: 100%; height: auto; border-radius: 10px; object-fit: contain; }
+video.slides { background: black; }
 </style>
 </head>
 <body>
-
-<h1>Our Society Independence Day Celebrations</h1>
-
-<div class="slideshow-container" id="slideshow">
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-<script>
-${imageArrayJS}
-
-const slideshow = document.getElementById('slideshow');
-imageFiles.forEach(src => {
-  let el;
-  if (/\\.(mp4|webm)$/i.test(src)) {
-    el = document.createElement('video');
-    el.src = src;
-    el.className = 'slides';
-    el.autoplay = true;
-    el.loop = true;
-    el.muted = true;       // required for autoplay on mobile
-    el.playsInline = true; // required for iOS Safari
-  } else {
-    el = document.createElement('img');
-    el.src = src;
-    el.className = 'slides';
-  }
-  slideshow.appendChild(el);
-});
-
-let slideIndex = 0;
-showSlides(slideIndex);
-
-function plusSlides(n) { showSlides(slideIndex += n); }
-
-function showSlides(n) {
-  let slides = document.getElementsByClassName("slides");
-  if (n >= slides.length) { slideIndex = 0; }
-  if (n < 0) { slideIndex = slides.length - 1; }
-  for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-  slides[slideIndex].style.display = "block";
-}
-
-// Auto-slide every 5 seconds for images only
-setInterval(function() { 
-  let slides = document.getElementsByClassName("slides");
-  if (!(slides[slideIndex] instanceof HTMLVideoElement)) {
-    plusSlides(1);
-  }
-}, 5000);
-</script>
-
+${bodyContent}
 </body>
 </html>
 `;
 
-// Write index.html
 fs.writeFileSync(outputFile, htmlTemplate, 'utf-8');
-console.log(`index.html generated with ${files.length} files (images/videos).`);
+console.log("index.html generated with multiple sections.");
